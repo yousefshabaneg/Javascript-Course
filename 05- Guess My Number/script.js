@@ -12,12 +12,12 @@ document.querySelector('.guess').value = 23;
 */
 
 //* Elements
-let messageEl = document.querySelector('.message');
-let checkBtn = document.querySelector('.check');
-let numberEl = document.querySelector('.number');
-let scoreEl = document.querySelector('.score');
-let highScoreEl = document.querySelector('.highscore');
-let againBtn = document.querySelector('.again');
+const messageEl = document.querySelector('.message');
+const checkBtn = document.querySelector('.check');
+const numberEl = document.querySelector('.number');
+const scoreEl = document.querySelector('.score');
+const highScoreEl = document.querySelector('.highscore');
+const againBtn = document.querySelector('.again');
 
 //* Variables
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
