@@ -61,3 +61,26 @@ console.log(Shopping.cart);
 import add from './shoppingCart.js';
 add('IPhone', 14);
 */
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+class Person {
+  #greeting = 'hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#greeting}, ${this.name}`);
+  }
+}
+
+const yousef = new Person(`Yousef`);
+
+Promise.resolve('ES6 Feature, it should be Ployfill').then(x => console.log(x));
+
+// import 'core-js/stable';
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/promise';
+
+//polifilling async functions
+// import 'regenerator-runtime/runtime';
