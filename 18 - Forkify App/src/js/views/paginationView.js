@@ -22,7 +22,7 @@ class PaginationView extends View {
       <svg class="search__icon">
         <use href="${icons}#icon-arrow-right"></use>
       </svg>
-    </button>;
+    </button>
     `;
   }
 
@@ -33,12 +33,13 @@ class PaginationView extends View {
         <use href="${icons}#icon-arrow-left"></use>
       </svg>
       <span>Page ${page}</span>
-    </button>;
+    </button>
     `;
   }
 
   _generateMarkup() {
     const curPage = this._data.page;
+    console.log(this._data);
 
     const numPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
@@ -47,19 +48,26 @@ class PaginationView extends View {
     // Page1, there are other pages
     if (curPage === 1 && numPages > 1) {
       return `
+      <div class="hidden">${this._generateNextButton(curPage + 1)}</div>
+      <span class="total-pages"> ${numPages} Pages</span>
       ${this._generateNextButton(curPage + 1)}
       `;
     }
 
     // LAST PAGE.
     if (curPage === numPages && numPages > 1) {
-      return this._generatePrevButton(curPage - 1);
+      return `
+      ${this._generatePrevButton(curPage - 1)}
+      <span class="total-pages">Last Page</span>
+      <div class="hidden">${this._generatePrevButton(curPage + 1)}</div>
+      `;
     }
 
     // OTHER PAGE.
     if (curPage < numPages) {
       return `
       ${this._generatePrevButton(curPage - 1)}
+      <span class="total-pages"> ${numPages} Pages</span>
       ${this._generateNextButton(curPage + 1)}
       `;
     }
